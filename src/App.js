@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Link } from 'react-router-dom'
+
+import Civilizaciones from './components/Civilizaciones'
+import Civilizacion from './components/Civilizacion'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+       <div className="btn-group mt-2">
+          <Link to="/" className="btn btn-dark">Inicio</Link>
+          <Link to="/civilizaciones" className="btn btn-dark">Civilizaciones</Link>
+        </div>
+      <Routes>
+        <Route path='/civilizaciones' element={ <Civilizaciones /> } exact/>
+        <Route path='/civilizacion/:id' element={ <Civilizacion /> } exact/>
+      </Routes>
     </div>
   );
 }
